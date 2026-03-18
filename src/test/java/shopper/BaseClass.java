@@ -3,20 +3,22 @@ package shopper;
 import static io.restassured.RestAssured.given;
 import java.util.HashMap;
 import org.testng.annotations.BeforeClass;
+
+import datadriverntesting.readData.ReadDataFromPropertiesFile;
 import io.restassured.response.Response;
 
-public class BaseClass {
+public class BaseClass extends ReadDataFromPropertiesFile{
 	protected static String shopperId;
 	protected static String jwtToken;
-	protected static String baseURL = "https://www.shoppersstack.com/shopping";
+	protected static String baseURL = url;
 	@BeforeClass
 	
 	public void login() {
 		HashMap<String,Object> map =  new HashMap<String,Object>();
 		
-		map.put("email", "bredmi250@gmail.com");
-		map.put("password", "Shadab@123");
-		map.put("role", "SHOPPER");
+		map.put("email", email);
+		map.put("password", password);
+		map.put("role", role);
 		
 		Response res = given()
 		.contentType("application/json")
