@@ -11,7 +11,7 @@ import shopper.Cart.Pojo.UpdateProductToCartPojo;
 public class Cart extends BaseClass {
 	protected List<Integer> productIds;
 	private String  itemId;
-	private int id = 12;
+	private int id = 16;
 	
 	@Test
 	public void fetchAllProducts() {
@@ -19,8 +19,6 @@ public class Cart extends BaseClass {
 			.auth().oauth2(jwtToken)
 			.relaxedHTTPSValidation()
 			.contentType("application/json")
-			
-			.baseUri(baseURL)
 			.when()
 			.get("/products/alpha");
 			
@@ -40,7 +38,6 @@ public class Cart extends BaseClass {
 				.contentType("application/json")
 				.body(product)
 				.pathParam("shopperId", shopperId)
-				.baseUri(baseURL)
 				.when()
 				.post("/shoppers/{shopperId}/carts");
 //		System.out.println(res.prettyPrint());
@@ -61,7 +58,6 @@ public class Cart extends BaseClass {
 				.body(product)
 				.pathParam("shopperId", shopperId)
 				.pathParam("itemId", itemId)
-				.baseUri(baseURL)
 				.when()
 				.put("/shoppers/{shopperId}/carts/{itemId}");
 		
@@ -76,7 +72,6 @@ public class Cart extends BaseClass {
 				.relaxedHTTPSValidation()
 				.pathParams("shopperId",shopperId)
 				.pathParam("productId", productIds.get(id))
-				.baseUri(baseURL)
 				.when()
 				.delete("/shoppers/{shopperId}/carts/{productId}");
 		

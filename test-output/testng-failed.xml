@@ -5,10 +5,9 @@
     <classes>
       <class name="shopper.Cart.Cart">
         <methods>
+          <include name="fetchData"/>
           <include name="login"/>
           <include name="fetchAllProducts"/>
-          <include name="UpdateProductInCart"/>
-          <include name="AddProductToCart"/>
         </methods>
       </class> <!-- shopper.Cart.Cart -->
     </classes>
