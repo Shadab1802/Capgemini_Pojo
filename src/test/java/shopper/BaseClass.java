@@ -16,8 +16,6 @@ public class BaseClass extends ReadDataFromPropertiesFile{
 	public void login() {
 //		System.out.println(baseURL);
 		HashMap<String,Object> map =  new HashMap<String,Object>();
-		System.out.println(email);
-		System.out.println(password);
 		map.put("email", email);
 		map.put("password", password);
 		map.put("role", role);
